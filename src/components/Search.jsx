@@ -1,40 +1,21 @@
-import React, { useState } from 'react'
+import React from 'react'
+import { IoIosSearch } from "react-icons/io";
 
-const Search = () => {
-  const [search, setSearch] = useState("");
-    const animes = [
-  "Naruto",
-  "One Piece",
-  "Attack on Titan",
-  "Demon Slayer",
-  "Jujutsu Kaisen",
-  "Death Note",
-  "Tokyo Ghoul",
-  "Bleach",
-  "Dragon Ball",
-  "Chainsaw Man",
-  "Solo Leveling",
-  "Black Clover",
-  "My Hero Academia",
-  "Fullmetal Alchemist",
-  "Hunter x Hunter"
-];
-
- const filteredAnimes = animes.filter((anime) =>
-    anime.toLowerCase().includes(search.toLowerCase())
-  );
+const Search = ({ searchValue, onSearchChange }) => {
   return (
-    <div> 
-        <input
-        type="search"
-        placeholder="Anime qidir..."
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
-        className="w-30  h-10 absolute top-5 left-3 px-13 rounded-4xl text-amber-50 sm:w-100 sm:px-13 md:reletive md:left-70 md:top-[-200]  md:rounded-3xl bg-blue-900/10"
+    <div>
+      <input
+        type="text"
+        value={searchValue}
+        onChange={(e) => onSearchChange(e.target.value)}
+        placeholder="Anime nomini yozing..."
+        className="bg-[#16171d] text-[#9ca3af] 
+      placeholder:text-[#6b6375] border border-[#2e303a] focus:outline-none focus:ring-2 
+      focus:ring-[#aa3bff] w-100 h-12 absolute top-10 left-30 rounded-2xl px-10"
       />
+      <IoIosSearch className='w-8 h-8 absolute top-12 left-31' />
     </div>
   )
 }
 
 export default Search
-
